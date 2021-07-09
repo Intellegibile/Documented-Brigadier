@@ -56,11 +56,23 @@ public class StringReader implements ImmutableStringReader {
         return string.substring(cursor);
     }
 
+    /**
+     * Torna vero se il cursore sommato alla lunghezza in parametro è minore
+     * della lunghezza della stringa.
+     * Utile per sapere se ci sono ancora caratteri della stringa da leggere
+     * @param length Lunghezza da sommare al cursore per sapere se entro quella lunghezza, la stringa contiene ancora caratteri quindi è ancora leggibile
+     * @return Booleano
+     */
     @Override
     public boolean canRead(final int length) {
         return cursor + length <= string.length();
     }
 
+    /**
+     * Torna vero se il cursore ha ancora almeno un carattere da leggere dalla stringa.
+     * Questo metodo richiama il metodo omonimo di parametro int length
+     * @return Booleano
+     */
     @Override
     public boolean canRead() {
         return canRead(1);
