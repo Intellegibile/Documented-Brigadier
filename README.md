@@ -2,6 +2,10 @@
 
 Brigadier is a command parser & dispatcher, designed and developed for Minecraft: Java Edition and now freely available for use elsewhere under the MIT license.
 
+# Brigadier Documentation
+
+Brigadier is an interesting tool and can be used as a modding tool or as a case study, actively maintaining documentation is the best way to learn and keep our skills and general knowledge alive, that's why this documentation exists. I personally will keep a branch of the repository with documentation in Italian, send pull requests to create branches in your native language
+
 # Installation
 Brigadier is available to Maven & Gradle via `libraries.minecraft.net`. Its group is `com.mojang`, and artifact name is `brigadier`.
 
