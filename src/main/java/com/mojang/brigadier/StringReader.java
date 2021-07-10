@@ -22,35 +22,56 @@ public class StringReader implements ImmutableStringReader {
         this.string = string;
     }
 
+    /**
+     * @return Ritorna la stringa venente letta
+     */
     @Override
     public String getString() {
         return string;
     }
 
+    /**
+     * @param cursor Posiziona il cursore nella posizione passata in parametro
+     */
     public void setCursor(final int cursor) {
         this.cursor = cursor;
     }
 
+    /**
+     * @return La lunghezza rimanente della stringa
+     */
     @Override
     public int getRemainingLength() {
         return string.length() - cursor;
     }
 
+    /**
+     * @return La lunghezza totale della stringa
+     */
     @Override
     public int getTotalLength() {
         return string.length();
     }
 
+    /**
+     * @return Cursore
+     */
     @Override
     public int getCursor() {
         return cursor;
     }
 
+    /**
+     * @return La stringa già letta, partendo dall'index 0 fino all'index posizione del cursore
+     */
     @Override
     public String getRead() {
         return string.substring(0, cursor);
     }
 
+    /**
+     * @return La stringa rimanente non ancora letta, partendo quindi dall'index della posizione del cursore
+     */
     @Override
     public String getRemaining() {
         return string.substring(cursor);
@@ -78,32 +99,65 @@ public class StringReader implements ImmutableStringReader {
         return canRead(1);
     }
 
+    /**
+     * @return Carattere nella stringa venente letta corrispondente alla posizione del cursore
+     */
     @Override
     public char peek() {
         return string.charAt(cursor);
     }
 
+    /**
+     * @param offset Spostamento da sommare al cursore
+     * @return Carattere nella stringa venente letta corrispondente alla posizione ottenuta dalla somma del cursore e dello spostamento
+     */
     @Override
     public char peek(final int offset) {
         return string.charAt(cursor + offset);
     }
 
+    /**
+     * Questo metodo avanza nella lettura della stringa leggendo il carattere seguente alla posizione
+     * del cursore
+     * @return Carattere nella stringa venente letta corrispondente alla posizione del cursore spostata in avanti di 1
+     */
     public char read() {
         return string.charAt(cursor++);
     }
 
+    /**
+     * Questo metodo fa avanzare di 1 carattere il cursore
+     */
     public void skip() {
         cursor++;
     }
 
+    /**
+     * Torna vero se il carattere in parametro è compreso tra 0 e 9 o uguale a '.' o '-'
+     * @param c Carattere in parametro
+     * @return Booleano
+     */
     public static boolean isAllowedNumber(final char c) {
         return c >= '0' && c <= '9' || c == '.' || c == '-';
     }
 
+    /**
+     * Torna vero se è iniziata una stringa entro virgolette, ovvero se il carattere
+     * in parametro è una doppia virgoletta o una singola virgoletta indicando
+     * che i caratteri seguenti fanno parte di una stringa tra virgolette
+     * @param c Carattere in parametro
+     * @return Booleano
+     */
     public static boolean isQuotedStringStart(char c) {
         return c == SYNTAX_DOUBLE_QUOTE || c == SYNTAX_SINGLE_QUOTE;
     }
 
+    /**
+     * Questo metodo viene usato per saltare gli spazi bianchi tra le parole
+     * Un ciclo while si aziona finchè ci sono caratteri da leggere e il carattere
+     * preso con il metodo 'peek()' è spazio bianco allora
+     * viene invocato il metodo 'skip()'
+     */
     public void skipWhitespace() {
         while (canRead() && Character.isWhitespace(peek())) {
             skip();
