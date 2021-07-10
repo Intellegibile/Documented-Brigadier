@@ -3,6 +3,9 @@
 
 package com.mojang.brigadier;
 
+/**
+ * Questa interfaccia definisce i metodi per un lettore di stringhe
+ */
 public interface ImmutableStringReader {
     String getString();
 
