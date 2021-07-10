@@ -3,6 +3,10 @@
 
 package com.mojang.brigadier.exceptions;
 
+/**
+ * Questa interfaccia definisce i metodi delle eccezioni già preconfigurate
+ * e pronte ad usi comuni e generali
+ */
 public interface BuiltInExceptionProvider {
     Dynamic2CommandExceptionType doubleTooLow();
 
