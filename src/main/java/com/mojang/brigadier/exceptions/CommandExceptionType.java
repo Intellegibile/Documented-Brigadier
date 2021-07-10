@@ -3,5 +3,9 @@
 
 package com.mojang.brigadier.exceptions;
 
+/**
+ * Questa è un interfaccia marker che indica una classe
+ * che la implementa come di tipo Exception
+ */
 public interface CommandExceptionType {
 }
