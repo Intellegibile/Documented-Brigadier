@@ -41,10 +41,18 @@ public class CommandSyntaxException extends Exception {
         return message;
     }
 
+    /**
+     * INTUIZIONE
+     * Questo metodo ritorna il Message senza alcuna modifica
+     */
     public Message getRawMessage() {
         return message;
     }
 
+    /**
+     * INTUIZIONE
+     * Questo metodo torna un contesto del punto in cui accadrebbe l'eccezione
+     */
     public String getContext() {
         if (input == null || cursor < 0) {
             return null;

@@ -29,7 +29,14 @@ import java.util.stream.Collectors;
 
 
 /**
+ * INTELLEGIBILE:
+ * INTUIZIONE
+ * Questa classe definisce un oggetto nella quale viene registrato
+ * un albero dei comandi, analizza i comandi e li esegue
+ * MOJANG:
  * The core command dispatcher, for registering, parsing, and executing commands.
+ * @param <S> è una fonte personalizzata, può essere un utente o qualunque
+ * fonte del comando
  *
  * @param <S> a custom "source" type, such as a user or originator of a command
  */

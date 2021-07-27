@@ -6,6 +6,12 @@ package com.mojang.brigadier.builder;
 import com.mojang.brigadier.tree.CommandNode;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 
+/**
+ * INTUIZIONE
+ * Questa classe definisce oggetti che costruiscono argomenti letterali
+ * Per argomento letterale si intende quella stringa scritta che indica un argomento
+ * @param <S>
+ */
 public class LiteralArgumentBuilder<S> extends ArgumentBuilder<S, LiteralArgumentBuilder<S>> {
     private final String literal;
 

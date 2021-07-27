@@ -150,6 +150,22 @@ public abstract class CommandNode<S> implements Comparable<CommandNode<S>> {
 
     protected abstract String getSortedKey();
 
+    /**
+     * INTUIZIONE
+     * Questo metodo ritorna una collezione di tutti i nodi importanti
+     * collegati all'attuale CommandNode
+     * Se la lista dei Literal è maggiore di 0 quindi c'è almeno 1 literal
+     * viene usato il parametro StringReader così da trovare la stringa
+     * del literal, poi si ritorna un LiteralCommandNode dalla mappa dei literal
+     * passando come chiave la stringa appena trovata del literal.
+     * Se il LiteralCommandNode è diverso da null allora ritorna un singleton
+     * di una Collezione contenente il LiteralCommandNode
+     * altrimenti ritorna i valori della mappa arguments.
+     * Nel caso in cui non vi sono literals allora ritorna sempre il valore della mappa
+     * degli ArgumentCommandNode
+     * @param input
+     * @return
+     */
     public Collection<? extends CommandNode<S>> getRelevantNodes(final StringReader input) {
         if (literals.size() > 0) {
             final int cursor = input.getCursor();
